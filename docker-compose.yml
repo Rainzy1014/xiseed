@@ -34,6 +34,12 @@ services:
       - pgdata:/var/lib/postgresql/data
     networks:
       - xiseed-net
+  redis:
+    image: redis:7-alpine
+    container_name: xiseed-redis
+    restart: always
+    networks:
+      - xiseed-net
 volumes:
   pgdata:
 networks:

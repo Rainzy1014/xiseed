@@ -3,4 +3,9 @@ uvicorn[standard]
 sqlalchemy
 asyncpg
 python-dotenv
-pydantic 
+pydantic
+redis
+celery
+passlib[bcrypt]
+python-jose[cryptography]
+python-multipart 
