@@ -2,166 +2,77 @@
   <!-- 头部整体盒子 -->
   <div id="header" class="container-fuild">
     <!-- 头部顶部 -->
-    <div class="header-top container-fuild hidden-xs">
+    <div class="container-fuild header-top hidden-xs">
       <div class="container">
-        <div class="server pull-left">
-          <span class="glyphicon glyphicon-earphone"></span>888-888-888
-          <span class="glyphicon glyphicon-envelope"></span>xxx@163.com
-          <span class="glyphicon glyphicon-time"></span>7x24小时为您服务
+        <div class="pull-left">
+          <ul class="header-top-list">
+            <li>
+              <a href="#">
+                <i class="glyphicon glyphicon-phone"></i>
+                <span>官方热线：400-000-0000</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="glyphicon glyphicon-envelope"></i>
+                <span>官方邮箱：admin@xiseed.com</span>
+              </a>
+            </li>
+          </ul>
         </div>
-        <div class="shejiao pull-right">
-          <span class="glyphicon glyphicon-hand-right"></span>赶快联系我们吧！
-          <span class="glyphicon glyphicon-hand-left"></span>
+        <div class="pull-right">
+          <ul class="header-top-list">
+            <li><a href="#">登录</a></li>
+            <li><a href="#">注册</a></li>
+          </ul>
         </div>
       </div>
     </div>
     <!-- 电脑导航 -->
-    <div class="header-nav container hidden-xs">
-      <!-- 导航logo -->
-      <div class="header-nav-logo">
-        <img src="../../assets/landing/img/logo_black.png">
+    <div class="container-fuild header-nav">
+      <div class="container">
+        <div class="header-nav-logo">
+          <img src="../../assets/landing/img/logo_black.png">
+        </div>
+        <div class="header-nav-list hidden-xs">
+          <ul>
+            <li class="active">
+              <a href="/">首页</a>
+            </li>
+            <li>
+              <a href="#">产品</a>
+            </li>
+            <li>
+              <a href="#">解决方案</a>
+            </li>
+            <li>
+              <a href="#">关于我们</a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <!-- 导航内容 -->
-      <ul class="header-nav-wrapper">
-        <li
-          v-for="(item,index) in navList"
-          :key="index"
-          :class="index==navIndex?'active':''"
-          @click="navClick(index,item.name)"
-        >
-          <router-link :to="item.path">
-            {{item.name}}
-            <span v-if="item.children.length>0" class="glyphicon glyphicon-menu-down"></span>
-            <i class="underline"></i>
-          </router-link>
-          <dl v-if="item.children.length>0">
-            <dt v-for="(i,n) in item.children" :key="n">
-              <router-link :to="i.path">{{i.name}}</router-link>
-            </dt>
-          </dl>
-        </li>
-      </ul>
     </div>
     <!-- 手机导航 -->
     <div class="header-nav-m container-fuild visible-xs">
       <div class="header-nav-m-logo">
         <img class="center-block" src="../../assets/landing/img/logo_black.png" alt="logo">
       </div>
-      <!-- 导航栏 -->
-      <div class="header-nav-m-menu text-center">
-        {{menuName}}
-        <div
-          class="header-nav-m-menu-wrapper"
-          data-toggle="collapse"
-          data-target="#menu"
-          @click="menuClick"
-        >
-          <span :class="menuClass"></span>
-        </div>
-        <!-- 导航内容 -->
-        <ul id="menu" class="header-nav-m-wrapper collapse">
-          <li
-            v-for="(item,index) in navList"
-            :key="index"
-            :class="index==navIndex?'active':''"
-            @click="navClick(index,item.name)"
-            data-toggle="collapse"
-            data-target="#menu"
-          >
-            <router-link :to="item.path">
-              {{item.name}}
-              <i class="underline"></i>
-            </router-link>
-          </li>
-        </ul>
-      </div>
     </div>
   </div>
 </template>
+
 <script>
+// No script logic needed for this static component
 export default {
-  name: "Header",
-  data() {
-    return {
-      navIndex: sessionStorage.getItem('navIndex') ? sessionStorage.getItem('navIndex') : 0,
-      menuName: "首页",
-      menuClass: "glyphicon glyphicon-menu-down",
-      navList: [
-        {
-          name: "首页",
-          path: "/",
-          children: []
-        },
-        {
-          name: "软件产品",
-          path: "/software",
-          children: [
-            {
-              name: "智能小镇管理系统",
-              path: "/software/smartTown"
-            },
-            {
-              name: "大数据管理系统",
-              path: "/software/bigData"
-            }
-          ]
-        },
-        {
-          name: "相关服务",
-          path: "/service",
-          children: []
-        },
-        {
-          name: "新闻动态",
-          path: "/newsinformation",
-          children: []
-        },
-        {
-          name: "公司介绍",
-          path: "/companyintroduction",
-          children: []
-        },
-        {
-          name: "工作机会",
-          path: "/jobchance",
-          children: []
-        },
-        {
-          name: "联系我们",
-          path: "/contactus",
-          children: []
-        }
-      ]
-    };
-  },
-  methods: {
-    navClick(index, name) {
-      this.navIndex = index;
-      sessionStorage.setItem('navIndex',index)
-      this.menuName = name;
-    },
-    menuClick() {
-      if (this.menuClass == "glyphicon glyphicon-menu-down") {
-        this.menuClass = "glyphicon glyphicon-menu-up";
-      } else {
-        this.menuClass = "glyphicon glyphicon-menu-down";
-      }
-    }
-  }
-};
+  name: 'Header'
+}
 </script>
+
 <style scoped>
 /* 顶部 */
 #header {
-  background: #f4f4f4;
+  background: #fff;
   transition: all ease 0.6s;
-}
-#header .header-top {
-  height: 50px;
-  color: #fff;
-  font-size: 12px;
-  line-height: 50px;
-  background: #474747;
 }
 /* 顶部的图标 */
 #header .header-top span {
@@ -173,15 +84,14 @@ export default {
 }
 /* 导航栏logo */
 #header .header-nav .header-nav-logo {
-  width: 100px;
-  height: 100%;
+  height: 100px;
+  width: 200px;
   float: left;
   position: relative;
 }
 /* 导航栏logo图片 */
 #header .header-nav .header-nav-logo img {
-  width: 95px;
-  height: 45px;
+  width: 128px;
   position: absolute;
   top: 0;
   left: 0;
@@ -291,8 +201,7 @@ export default {
   }
   /* 导航栏logo图片 */
   #header .header-nav-m .header-nav-m-logo img {
-    width: 95px;
-    height: 45px;
+    width: 120px;
     position: absolute;
     top: 0;
     left: 0;

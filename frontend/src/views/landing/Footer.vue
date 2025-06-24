@@ -1,75 +1,58 @@
 <template>
-  <div id="footer" class="container-fluid">
-    <div class="logo">
-      <img src="@/assets/img/logo_white.png" alt="logo图">
+  <div id="footer" class="container-fuild">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4">
+          <h4>关于我们</h4>
+          <p>这是一个基于 Vue 3 和 Vite 构建的企业网站，集成了来自旧版网站模板的设计。旨在提供一个现代化、高性能的用户体验。</p>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4">
+          <h4>联系方式</h4>
+          <p><i class="glyphicon glyphicon-phone"></i> 400-000-0000</p>
+          <p><i class="glyphicon glyphicon-envelope"></i> admin@xiseed.com</p>
+          <p><i class="glyphicon glyphicon-map-marker"></i> 中国北京市海淀区</p>
+        </div>
+        <div class.col-xs-12 col-sm-4 col-md-4>
+          <h4>关注我们</h4>
+          <img class="img-responsive" src="../../assets/landing/img/weixin.png" alt="WeChat QR Code">
+        </div>
+      </div>
+      <div class="row footer-bottom">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <p>Copyright &copy; 2024 xiseed. All Rights Reserved.</p>
+        </div>
+      </div>
     </div>
-    <p class="title">公司企业网站模板</p>
-    <p class="address_tel_fax">
-      <span>地址：公司地址</span>
-      <span>Tel：888-888-888</span>
-    </p>
-    <p class="email_wx">
-      <span>邮箱：xxx@163.com</span>
-      <span>微信号：xxx</span>
-    </p>
-    <p class="copy">Copyright &copy; 2018 - {{ new Date().getFullYear() }} 公司名称</p>
   </div>
 </template>
+
 <script>
 export default {
-  name: "Footer",
-  data() {
-    return {};
-  }
+  name: "Footer"
 };
 </script>
+
 <style scoped>
+/* Scoped styles from the original file */
 #footer {
-  width: 100%;
-  height: 100%;
+  background: #262626;
   color: #fff;
-  background: #474747;
-  overflow: hidden;
-  text-align: center;
+  padding: 50px 0;
+  transition: all ease 0.5s;
 }
-.logo {
-  width: 95px;
-  height: 45px;
-  margin: 50px auto 20px;
-}
-.title {
-  font-size: 25px;
+#footer h4 {
+  font-size: 18px;
   margin-bottom: 20px;
 }
-.address_tel_fax {
-  color: #d3d3d3;
-  font-size: 14px;
-  margin: 10px 0;
+#footer p {
+  line-height: 2;
+  color: #ccc;
 }
-.email_wx {
-  color: #d3d3d3;
-  font-size: 14px;
-}
-.copy {
-  color: #d3d3d3;
-  font-size: 14px;
-  margin: 50px 0 10px;
-}
-@media screen and (max-width: 997px) {
-  .title {
-    font-size: 20px;
-  }
-  .address_tel_fax {
-    font-size: 12px;
-  }
-  .email_wx {
-
-  font-size: 12px;
-}
-.copy {
-  font-size: 12px;
-  margin: 30px 0 10px;
-}
+#footer .footer-bottom {
+  margin-top: 30px;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+  text-align: center;
 }
 </style>
 
