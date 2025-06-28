@@ -38,7 +38,25 @@
             </form>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-6">
-            <div id="map" class="wow zoomIn"></div>
+            <div class="contact-info wow zoomIn">
+              <h3>联系方式</h3>
+              <div class="info-item">
+                <i class="glyphicon glyphicon-phone"></i>
+                <span>电话：400-000-0000</span>
+              </div>
+              <div class="info-item">
+                <i class="glyphicon glyphicon-envelope"></i>
+                <span>邮箱：admin@xiseed.com</span>
+              </div>
+              <div class="info-item">
+                <i class="glyphicon glyphicon-map-marker"></i>
+                <span>地址：中国北京市海淀区</span>
+              </div>
+              <div class="info-item">
+                <i class="glyphicon glyphicon-time"></i>
+                <span>工作时间：周一至周五 9:00-18:00</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -47,29 +65,12 @@
 </template>
 <script>
 import { WOW } from 'wowjs'
-import BMap from "BMap";
 export default {
   name: "ContactUs",
   data() {
     return {};
   },
   mounted() {
-    var map = new BMap.Map("map"); // 创建地图实例
-    var point = new BMap.Point(116.301841,40.156506); // 创建点坐标
-    map.centerAndZoom(point, 18); // 初始化地图，设置中心点坐标和地图级别
-    map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
-    var marker = new BMap.Marker(point); // 创建标注
-    map.addOverlay(marker); // 将标注添加到地图中
-    var opts = {
-      width: 50, // 信息窗口宽度
-      height: 10, // 信息窗口高度
-      title: "黄元公寓" // 信息窗口标题
-    };
-    var infoWindow = new BMap.InfoWindow(
-      "我的家",
-      opts
-    ); // 创建信息窗口对象
-    map.openInfoWindow(infoWindow, map.getCenter()); // 打开信息窗口
     var wow = new WOW();
     wow.init();
   }
@@ -81,7 +82,7 @@ export default {
   font-size: 30px;
   height: 150px;
   line-height: 150px;
-  background-image: url("../assets/img/banner_1.jpg");
+  background-image: url("../assets/landing/img/banner_1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: scroll;
@@ -92,9 +93,31 @@ export default {
   transition: all ease 0.5s;
   box-sizing: border-box;
 }
-#map {
-  width: 100%;
+.contact-info {
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 8px;
   height: 365px;
+}
+.contact-info h3 {
+  margin-bottom: 30px;
+  color: #333;
+  text-align: center;
+}
+.info-item {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+.info-item i {
+  margin-right: 15px;
+  color: #007bff;
+  font-size: 18px;
+  width: 20px;
+}
+.info-item span {
+  color: #666;
+  font-size: 16px;
 }
 .row {
   margin-right: 0;
@@ -103,6 +126,10 @@ export default {
 @media screen and (max-width: 997px) {
   .ContactUs-container {
     padding: 20px 0;
+  }
+  .contact-info {
+    margin-top: 30px;
+    height: auto;
   }
 }
 </style>
